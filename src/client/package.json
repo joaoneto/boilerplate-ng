@@ -1,0 +1,18 @@
+{
+  "name": "client",
+  "version": "0.0.2",
+  "description": "Client App for boilerplate-ng",
+  "main": "app.js",
+  "license": "GPLV3",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-animate": "^1.6.1",
+    "angular-aria": "^1.6.1",
+    "angular-material": "^1.1.1",
+    "angular-messages": "^1.6.1",
+    "angular-sanitize": "^1.6.1",
+    "angular-ui-router": "^0.3.2",
+    "font-awesome": "^4.7.0",
+    "toastr": "^2.1.2"
+  }
+}

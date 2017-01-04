@@ -1,18 +1,9 @@
 {
   "name": "boilerplate-ng",
-  "version": "0.0.1",
-  "description": "A simple boilerplate to angular with angular-material, gulp and some fun packages ;) ",
+  "version": "0.0.2",
+  "description": "A boilerplate with angular, angular-material, gulp, mocha en some other nice tools",
   "main": "app.js",
   "repository": "git@github.com:lucastafarelbs/boilerplate-ng.git",
   "author": "lucastafarelbs <lucastafarelbs@gmail.com>",
-  "license": "GPLV3",
-  "dependencies": {
-    "angular": "^1.6.1",
-    "angular-animate": "^1.6.1",
-    "angular-aria": "^1.6.1",
-    "angular-material": "^1.1.1",
-    "angular-messages": "^1.6.1",
-    "angular-ui-router": "^0.3.2",
-    "font-awesome": "^4.7.0"
-  }
+  "license": "GPLV3"
 }
