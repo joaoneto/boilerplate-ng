@@ -1,28 +1,123 @@
 <!DOCTYPE html>
 <html data-ng-app="app" ng-strict-di>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
   <title>Boilerplate-ng</title>
-
+  <!-- Angular é melhor declarar aqui para na carregar nada antes dele.-->
+  <script src="node_modules/angular/angular.min.js"></script>
+  <style type="text/css">
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
   <!-- CSS -->
   <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
   <link rel="stylesheet" href="node_modules/toastr/build/toastr.min.css">
   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
   <!-- favicon -->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+
 </head>
 
-<body>
-  <md-toolbar layout="row">
-    <h3>Angular Material - Starter App</h3>
-    <span></span>
-  </md-toolbar>
+<body ng-controller="appCtrl as vm">
+  <md-toolbar class="mobile" ng-cloak>
 
+    <div class="md-toolbar-tools" ng-show="vm.showMobileMainHeader">
+      <md-button class="md-icon-button" aria-label="Side Panel" ng-click="vm.openSideNavPanel()">
+        <!-- <md-tooltip>Side Panel</md-tooltip> -->
+        <md-icon class="fa fa-bars fa-2x"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Icon">
+        <!-- <md-tooltip>Icon</md-tooltip> -->
+        <md-icon class="fa fa-facebook fa-2x"></md-icon>
+      </md-button>
+      <h2>
+          <span>Heading</span>
+        </h2>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Search" ng-click="vm.showMobileMainHeader = false">
+        <!-- <md-tooltip>Search</md-tooltip> -->
+        <md-icon class="fa fa-search fa-2x"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="User">
+        <!-- <md-tooltip>User</md-tooltip> -->
+        <md-icon class="fa fa-user fa-2x"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Messages">
+        <!-- <md-tooltip>Messages</md-tooltip> -->
+        <md-icon class="fa fa-commenting fa-2x"></md-icon>
+      </md-button>
+    </div>
+    <div class="md-toolbar-tools" ng-show="!vm.showMobileMainHeader">
+      <md-button class="md-icon-button" aria-label="Back" ng-click="vm.showMobileMainHeader = true">
+        <!-- <md-tooltip>Back</md-tooltip> -->
+        <md-icon class="fa fa-arrow-left fa-2x"></md-icon>
+      </md-button>
+      <md-input-container md-no-float class="md-accent" style="padding-bottom:0px;">
+        <input ng-model="searchInput" placeholder="Search here" style="color:wheat;">
+      </md-input-container>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Search">
+        <!-- <md-tooltip>Search</md-tooltip> -->
+        <md-icon class="fa fa-send fa-2x"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" ng-cloak>
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <h2>
+            <span>Side Panel</span>
+          </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.closeSideNavPanel()">
+          <!-- <md-tooltip>Close Side Panel</md-tooltip> -->
+          <md-icon class="fa fa-close fa-2x"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-content layout-padding="">
+      <md-list >
+        <md-subheader class="md-no-sticky">Favorites</md-subheader>
+        <md-list-item>
+          <md-icon class="fa fa-comments"></md-icon>
+          <p>Messages</p>
+        </md-list-item>
+        <md-list-item >
+          <p>Events</p>
+          <md-icon class="fa fa-calendar md-secondary" >2</md-icon>
+        </md-list-item>
+      <md-list>
+        <md-subheader class="md-no-sticky">Pages</md-subheader>
+        <md-list-item>
+          <md-icon class="fa fa-file-text md-default-theme" ></md-icon>
+          <p>Pages Feed</p>
+          <div class="md-secondary">2</div>
+        </md-list-item>
+        <md-list-item>
+          <md-icon class="md-default-theme fa fa-thumbs-up"></md-icon>
+          <p>Like Pages</p>
+          <div class=" md-secondary">20+</div>
+        </md-list-item>
+      </md-list>
+
+    </md-content>
+  </md-sidenav>
+
+  <a href="" ui-sref="hello" ui-sref-active="active" ng-cloak>Hello</a>
+  <a href="" ui-sref="about" ui-sref-active="active" ng-cloak>About</a>
+
+  <ui-view></ui-view>
 
   <!-- JS -->
-  <script src="node_modules/angular/angular.min.js"></script>
   <script src="node_modules/angular-animate/angular-animate.min.js"></script>
   <script src="node_modules/angular-aria/angular-aria.min.js"></script>
   <script src="node_modules/angular-material/angular-material.min.js"></script>
@@ -35,4 +130,5 @@
   <!-- CoreModule -->
   <script src="app/core/core.module.js"></script>
 </body>
+
 </html>

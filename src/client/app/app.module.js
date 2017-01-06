@@ -2,14 +2,47 @@
   'use strict';
 
   angular.module('app', [
-    'app.core',
+      'app.core',
 
-    /*
-     * Feature areas
+      /*
+       * Feature areas
 
-    'app.avengers',
-    'app.dashboard',
-    'app.layout' */
-  ]);
+      'app.avengers',
+      'app.dashboard',
+      'app.layout' */
+    ])
+    .config(_config)
+    .controller('appCtrl', appCtrl)
+
+
+  function _config($stateProvider) {
+    var helloState = {
+      name: 'hello',
+      url: '/hello',
+      template: '<h3>hello world!</h3>'
+    }
+
+    var aboutState = {
+      name: 'about',
+      url: '/about',
+      template: '<h3>Its the UI-Router hello world app!</h3>'
+    }
+
+    $stateProvider.state(helloState);
+    $stateProvider.state(aboutState);
+  };
+  _config.$inject = ['$stateProvider'];
+
+  function appCtrl($mdSidenav) {
+    let vm = this;
+    vm.showMobileMainHeader = true;
+    vm.openSideNavPanel = function () {
+      $mdSidenav('left').open();
+    };
+    vm.closeSideNavPanel = function () {
+      $mdSidenav('left').close();
+    };
+  };
+  appCtrl.$inject = ['$mdSidenav'];
 
 })();
