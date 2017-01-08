@@ -1,0 +1,44 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" ng-cloak>
+  <md-toolbar layout="row">
+    <div class="md-toolbar-tools" ng-click="vm.closeSideNavPanel()">
+      <h2> <span>Boilerplate</span> </h2>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Close Side Panel">
+        <md-icon class="fa fa-close fa-2x"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content layout-padding="">
+    <md-list ng-repeat="item in vm.menus">
+      <p>{{item.label}}</p>
+      <md-list-item ng-repeat="subitem in item.itens">
+        <md-list-item ng-repeat="subsubitem in subitem.itens"ng-if="(subitem.itens.length == 0)">{{subitem.label}} </md-list-item>
+
+          <md-list-item ng-repeat="subsubitem in subitem.itens">{{subsubitem.label}}
+          </md-list-item>
+
+      </md-list-item>
+    </md-list>
+  </md-content>
+</md-sidenav>
+
+
+<div>
+ <md-menu-bar  class='menuBar'>
+   <md-menu ng-repeat="item in vm.menus">
+     <md-button class="md-primary md-hue-3" ng-click="$mdOpenMenu()"> {{item.label}} </md-button>
+     <md-menu-content>
+       <md-menu-item ng-repeat="subitem in item.itens">
+         <md-button  ng-click="vm.clique(subitem.path)" ng-if="subitem.itens.length==0">{{subitem.label}} </md-button >
+         <md-menu  ng-if="subitem.itens.length!=0">
+            <md-button ng-click="$mdOpenMenu()"> {{subitem.label}}
+            </md-button>
+            <md-menu-content>
+               <md-menu-item ng-repeat="subsubitem in subitem.itens"><md-button ng-click="vm.clique(subsubitem.path)">{{subsubitem.label}}</md-button></md-menu-item>
+            </md-menu-content>
+         </md-menu>
+       </md-menu-item>
+     </md-menu-content>
+   </md-menu>
+ </md-menu-bar>
+</div>

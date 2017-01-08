@@ -35,6 +35,63 @@
 
   function appCtrl($mdSidenav) {
     let vm = this;
+
+    vm.menus = [
+    {
+      label: 'Cadastro',
+      active: true,
+      itens: [],
+      path: '/cadastros',
+      itens: [{
+        label: 'Clientes',
+        active: true,
+        itens: [],
+        path: '/clientes',
+        itens: [{
+          label: 'Clientes Ativos',
+          active: true,
+          itens: [],
+          path: '/clientesAtivos'
+        }, {
+          label: 'Clientes Inadimplentes',
+          active: true,
+          itens: [],
+          path: '/clientesInadimplentes'
+        }]
+      }, {
+        label: 'Endereços',
+        active: true,
+        itens: [],
+        path: '/enderecos'
+      }]
+    },
+    {
+      label: 'Atividades',
+      itens: [{
+        label: 'Venda',
+        active: true,
+        itens: [],
+        path: 'atividades',
+        itens: [{
+          label: 'Orçamentos',
+          active: true,
+          itens: [],
+          path: '/orcamentos'
+        }, {
+          label: 'Vendas',
+          active: true,
+          itens: [],
+          path: '/vendas'
+        }]
+      }, {
+        label: 'Compra',
+        active: true,
+        itens: [],
+        path: '/compras'
+      }]
+    }];
+
+
     vm.showMobileMainHeader = true;
     vm.openSideNavPanel = function () {
       $mdSidenav('left').open();
