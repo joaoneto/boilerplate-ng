@@ -37,60 +37,64 @@
     let vm = this;
 
     vm.menus = [
-    {
-      label: 'Cadastro',
-      active: true,
-      itens: [],
-      path: '/cadastros',
-      itens: [{
-        label: 'Clientes',
+      {
+        label: 'Cadastro',
         active: true,
-        itens: [],
-        path: '/clientes',
-        itens: [{
-          label: 'Clientes Ativos',
-          active: true,
-          itens: [],
-          path: '/clientesAtivos'
+        path: '/cadastros',
+        itens: [
+          {
+            label: 'Clientes',
+            active: true,
+            path: '/clientes',
+            itens: [{
+              label: 'Clientes Ativos',
+              active: true,
+              path: '/clientesAtivos',
+              itens: []
         }, {
-          label: 'Clientes Inadimplentes',
-          active: true,
-          itens: [],
-          path: '/clientesInadimplentes'
+              label: 'Clientes Inadimplentes',
+              active: true,
+              path: '/clientesInadimplentes',
+              itens: []
         }]
       }, {
-        label: 'Endereços',
-        active: true,
-        itens: [],
-        path: '/enderecos'
+            label: 'Endereços',
+            active: true,
+            itens: [],
+            path: '/enderecos'
       }]
     },
-    {
-      label: 'Atividades',
-      itens: [{
-        label: 'Venda',
-        active: true,
-        itens: [],
-        path: 'atividades',
+      {
+        label: 'Atividades',
         itens: [{
-          label: 'Orçamentos',
+          label: 'Venda',
           active: true,
-          itens: [],
-          path: '/orcamentos'
+          path: 'atividades',
+          itens: [{
+            label: 'Orçamentos',
+            active: true,
+            itens: [],
+            path: '/orcamentos'
         }, {
-          label: 'Vendas',
-          active: true,
-          itens: [],
-          path: '/vendas'
+            label: 'Vendas',
+            active: true,
+            itens: [],
+            path: '/vendas'
         }]
       }, {
-        label: 'Compra',
-        active: true,
-        itens: [],
-        path: '/compras'
+          label: 'Compra',
+          active: true,
+          path: '/compras',
+          itens: []
       }]
     }];
 
+    vm.setMostrar = (esse) => {
+      vm.mostar = esse
+    };
+    vm.getMostrar = () => vm.mostar;
+
+    vm.cl = (msg) => console.log(msg);
 
     vm.showMobileMainHeader = true;
     vm.openSideNavPanel = function () {
@@ -101,5 +105,4 @@
     };
   };
   appCtrl.$inject = ['$mdSidenav'];
-
 })();
