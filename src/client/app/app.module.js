@@ -35,7 +35,7 @@
 
   function appCtrl($mdSidenav) {
     let vm = this;
-
+    vm.appName = 'Boilerplate-ng';
     vm.menus = [
       {
         label: 'Cadastro',
@@ -94,20 +94,20 @@
     };
     vm.getMostrar = () => vm.mostar;
 
-    vm.cl = (aa) => {
-      if (aa.itens && aa.itens.length > 0) {
-        if (vm.menuMostrar === aa.label) {
+    vm.cl = (listItem) => {
+      if (listItem.itens && listItem.itens.length > 0) {
+        if (vm.menuMostrar === listItem.label) {
           vm.menuMostrar = ''
-          vm.menuEsconder = aa.label
+          vm.menuEsconder = listItem.label
         }
         else {
           vm.menuEsconder = ''
-          vm.menuMostrar = aa.label
+          vm.menuMostrar = listItem.label
         }
-        vm.route = '';
+        vm.route = '#';
       }
       else {
-        vm.route = aa.path;
+        vm.route = listItem.path;
         console.log(vm.route);
       }
     }

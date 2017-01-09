@@ -2,7 +2,7 @@
     <md-toolbar layout="row">
         <div class="md-toolbar-tools" ng-click="vm.closeSideNavPanel()">
             <h2>
-                <span>Boilerplate</span>
+                <span>{{vm.appName}}</span>
             </h2>
             <span flex></span>
             <md-button class="md-icon-button" aria-label="Close Side Panel">
@@ -16,15 +16,16 @@
                 <p style="margin-left:5px">{{item.label}}</p>
             </md-toolbar>
 
-            <md-list-item ng-repeat="subitem in item.itens" ng-click="vm.cl(subitem)">
+            <md-list-item ng-repeat="subitem in item.itens" ng-click="vm.cl(subitem)" ng-href="{{vm.route}}">
                 <md-list>
-                    <div style="font-weight:bold">
+                    <div style="font-weight:bold" >
                         {{subitem.label}}
                     </div>
                     <md-list-item ng-if="(vm.menuMostrar == subitem.label && vm.menuEsconder != subitem.label)"
                                   ng-repeat="subsubitem in subitem.itens"
-                                  ng-click="vm.cl(subsubitem)">
-                        <div style="padding-right:20px">
+                                  ng-click="vm.cl(subsubitem)"
+                                  ng-href="{{vm.route}}">
+                        <div style="padding-right:20px" >
                             {{subsubitem.label}}
                         </div>
                     </md-list-item>
