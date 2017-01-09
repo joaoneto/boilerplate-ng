@@ -16,20 +16,17 @@
                 <p style="margin-left:5px">{{item.label}}</p>
             </md-toolbar>
 
-            <md-list-item ng-repeat="subitem in item.itens"  ng-click="vm.cl(subitem)">
-                <md-list ng-if="(subitem.itens.length == 0)">
+            <md-list-item ng-repeat="subitem in item.itens" ng-click="vm.cl(subitem)">
+                <md-list>
                     <div style="font-weight:bold">
                         {{subitem.label}}
                     </div>
-                </md-list>
-                <md-list ng-if="(subitem.itens.length > 0)">
-                    <div style="font-weight:bold">
-                        {{subitem.label}}
-                    </div>
-                    <md-list-item ng-repeat="subsubitem in subitem.itens" ng-if="(vm.mostrar == subitem.label && vm.esconder != subitem.label)" ng-click="vm.cl(subsubitem.path)">
-                      <div >
-                        {{subsubitem.label}}
-                      </div>
+                    <md-list-item ng-if="(vm.menuMostrar == subitem.label && vm.menuEsconder != subitem.label)"
+                                  ng-repeat="subsubitem in subitem.itens"
+                                  ng-click="vm.cl(subsubitem)">
+                        <div style="padding-right:20px">
+                            {{subsubitem.label}}
+                        </div>
                     </md-list-item>
                     <md-list></md-list-item>
                 </md-list>

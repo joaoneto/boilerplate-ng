@@ -94,7 +94,23 @@
     };
     vm.getMostrar = () => vm.mostar;
 
-    vm.cl = (msg) => console.log(msg);
+    vm.cl = (aa) => {
+      if (aa.itens && aa.itens.length > 0) {
+        if (vm.menuMostrar === aa.label) {
+          vm.menuMostrar = ''
+          vm.menuEsconder = aa.label
+        }
+        else {
+          vm.menuEsconder = ''
+          vm.menuMostrar = aa.label
+        }
+        vm.route = '';
+      }
+      else {
+        vm.route = aa.path;
+        console.log(vm.route);
+      }
+    }
 
     vm.showMobileMainHeader = true;
     vm.openSideNavPanel = function () {
